@@ -1,0 +1,9 @@
+<%= form_for @worker, controller: 'workers', action: 'create' do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit "create" %>
+<% end %>

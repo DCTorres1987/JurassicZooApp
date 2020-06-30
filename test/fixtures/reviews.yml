@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  zoo_id: 1
+  user_id: 1
+  stars: MyString
+  review: MyString
+
+two:
+  zoo_id: 1
+  user_id: 1
+  stars: MyString
+  review: MyString
