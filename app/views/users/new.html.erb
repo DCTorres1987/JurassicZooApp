@@ -1,9 +1,41 @@
-<%= form_for @worker, controller: 'workers', action: 'create' do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<!-- app/views/home/sign_up.html.erb -->
+<div class="mainContent">
+  <div class="grid">
+    <h1 class="largeHeader">Sign up</h1>
+    <p class="centeredDescription col_4">Already signed up? You can <a href="">log in here.</a></p>
+    <div class="col_1">
+      <%= form_for :user, class: "signupForm" do |f| %>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name, class: "shortInput" %> <br />
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name, class: "shortInput" %> <br />
+
+  <%= f.label :email, "Email Address" %>
+  <%= f.text_field :email, class: "shortInput" %> <br />
 
   <%= f.label :password %>
-  <%= f.password_field :password %>
+  <%= f.password_field :password, class: "shortInput" %> <br />
 
-  <%= f.submit "create" %>
+  <%= f.label :password_confirmation, "Confirm Password" %>
+  <%= f.password_field :password_confirmation, class: "shortInput" %> <br />
+
+  <%= f.submit "Create account", class: "button createAccount" %>
+
 <% end %>
+    </div><!-- end column 2 contact form -->
+
+        <div class="col_2">
+      <h4>Upload Profile Picture</h4>
+      <div class="placeholderPic"></div>
+      <a href="" class="secondaryButton uploadButton">Choose photo from a url</a>
+      <a href="" class="secondaryButton uploadButton">Choose photo from your computer</a>
+    </div><!-- end 2 column upload profile pic -->
+
+    <div class="col_4">
+      <a href="" class="button createAccount">Create account</a>
+    </div>
+
+  </div><!-- end grid -->
+</div><!-- end mainContent -->

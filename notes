@@ -1,4 +1,28 @@
-[] Create a Home Page (Welcome Controller)
-[]   has link to sign up page
-[]   has link to login page 
-[]   has link to career page 
+Do not use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and running quickly, 
+but learning a lot is not one of the benefits of scaffolding.
+
+# Feature requests
+* scope method: filter Careers by attractions and/or spinal effect?
+* model method:
+* view helper method:
+* helper method: 
+
+# Todo
+
+## jurassic zoo
+### zoo controller
+* Index =>  Welcomet = > Has zoo locations and a link to their individual show page
+* Show =>   Will give users option of creating an account or apply for a job at that zoo. Link directs to Worker/new or User/new 
+
+### worker controller
+* Show => Will allow worker to see list of dinosaurs with a button to give food or water. Timing of their last feeding will change their moodlet
+
+### user controller 
+* Show => Will give user option to purchase a ticket to an attaraction or to leave a review. Link that directs to Ticket/new using shopping basket?
+
+
+### 
+
+
+
+
