@@ -1,4 +1,11 @@
 class UsersController < ApplicationController
+
+    def show 
+    end 
+
+    def addtocart
+    end 
+    
     def create
      
         User.create(user_params)
