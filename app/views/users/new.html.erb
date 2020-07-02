@@ -1,41 +1,23 @@
-<!-- app/views/home/sign_up.html.erb -->
-<div class="mainContent">
-  <div class="grid">
-    <h1 class="largeHeader">Sign up</h1>
-    <p class="centeredDescription col_4">Already signed up? You can <a href="">log in here.</a></p>
-    <div class="col_1">
-      <%= form_for :user, class: "signupForm" do |f| %>
+<h2>Hello Visitor! Create an Account!</h2>
 
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name, class: "shortInput" %> <br />
+<%= form_for @user, url: zoo_users_path(@user.zoo.id), method: :post do |w| %>
+<%= w.hidden_field :zoo_id, :value => @user.zoo.id %>
+<p>
+  <%= w.label :name %>
+  <%= w.text_field :name %>
+</p>
+<p>
+  <%= w.label :email %>
+  <%= w.text_field :email %>
+</p>
+<p>
+  <%= w.label :username %>
+  <%= w.text_field :username %>
+</p>
+<p>
+  <%= w.label :password %>
+  <%= w.text_field :password_digest %>
+</p>
 
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name, class: "shortInput" %> <br />
-
-  <%= f.label :email, "Email Address" %>
-  <%= f.text_field :email, class: "shortInput" %> <br />
-
-  <%= f.label :password %>
-  <%= f.password_field :password, class: "shortInput" %> <br />
-
-  <%= f.label :password_confirmation, "Confirm Password" %>
-  <%= f.password_field :password_confirmation, class: "shortInput" %> <br />
-
-  <%= f.submit "Create account", class: "button createAccount" %>
-
+<%= w.submit "Submit" %> 
 <% end %>
-    </div><!-- end column 2 contact form -->
-
-        <div class="col_2">
-      <h4>Upload Profile Picture</h4>
-      <div class="placeholderPic"></div>
-      <a href="" class="secondaryButton uploadButton">Choose photo from a url</a>
-      <a href="" class="secondaryButton uploadButton">Choose photo from your computer</a>
-    </div><!-- end 2 column upload profile pic -->
-
-    <div class="col_4">
-      <a href="" class="button createAccount">Create account</a>
-    </div>
-
-  </div><!-- end grid -->
-</div><!-- end mainContent -->
