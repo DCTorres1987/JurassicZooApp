@@ -3,5 +3,6 @@ class Zoo < ApplicationRecord
     has_many :users, through: :tickets
     has_many :reviews, through: :users
     has_many :attractions
-    
+
+      
 end

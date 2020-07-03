@@ -1,0 +1,15 @@
+<p>
+  <label>Email: </label><br>
+  <%= text_field_tag :email, @user.name %>
+</p>
+<p>
+  <label>Username:</label><br>
+  <%= text_field_tag :username, @user.username %>
+</p>
+<p>
+  <label>Password:</label><br>
+  <%= text_field_tag :password_digest, @user.password_digest %>
+
+  <%= submit_tag "Submit" %> 
+
+</p>

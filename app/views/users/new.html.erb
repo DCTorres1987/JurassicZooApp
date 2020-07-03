@@ -1,23 +1,15 @@
 <h2>Hello Visitor! Create an Account!</h2>
 
+<%= render partial: '/errors', locals: { record: @user } %>
+
 <%= form_for @user, url: zoo_users_path(@user.zoo.id), method: :post do |w| %>
 <%= w.hidden_field :zoo_id, :value => @user.zoo.id %>
 <p>
   <%= w.label :name %>
   <%= w.text_field :name %>
 </p>
-<p>
-  <%= w.label :email %>
-  <%= w.text_field :email %>
-</p>
-<p>
-  <%= w.label :username %>
-  <%= w.text_field :username %>
-</p>
-<p>
-  <%= w.label :password %>
-  <%= w.text_field :password_digest %>
-</p>
 
-<%= w.submit "Submit" %> 
+<%= render 'form' %>
+
+
 <% end %>
