@@ -9,5 +9,9 @@
 
 # Zoo.create(name: 'Jurassic Zoo', location: '1800 Jurassic Lane, Isla Nublar', image: 'https://cdn1.beachdeals.com/wp/wp-content/uploads/2018/02/near-koloa-hawaii-660x250-GettyImages-534481599.jpg'); 
 # Zoo.create(name: 'Jurassic Land', location: '745 Jurassic Road, South Isla Nublar', image: 'https://getawaygreg.files.wordpress.com/2013/01/hawaii-small.jpg');
-User.create!(name: 'Dani Gems', email: 'dani@gmail.com', username: 'danigem', password_digest: 'universe1', zoo_id: 1); 
+# User.create!(name: 'Dani Gems', email: 'dani@gmail.com', username: 'danigem', password_digest: 'universe1', zoo_id: 1); 
 # WorkerAddress.create(address_type: 'Home', address1: '123 Silver Lane', city: 'Monroe', state: 'NC', zip: '28110', worker_id: 1);
+# Attraction.create!(name: 'Jurrasic Zoo Carnivore Exhibit',zoo_id: 1);
+Attraction.create!(name: 'Jurrasic Zoo Herbivore Exhibit and Bird Exhibt',zoo_id: 1);
+# Attraction.create!(name: 'Jurrasic Land Herbivore and Sea Monster Exhibit',zoo_id: 2);
+

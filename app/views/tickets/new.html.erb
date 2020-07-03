@@ -1,0 +1,36 @@
+<h1>Purchase a Ticket</h1>
+
+<%= form_for @ticket, url: zoo_user_tickets_path(@ticket.user.id), method: :post do |w| %>
+
+<b>Times</b><br />
+<%= w.radio_button :time, '09:00 am' %> 09:00 am<br />
+<%= w.radio_button :time, '09:30 am' %> 09:30 am<br />
+<%= w.radio_button :time, '10:00 am' %> 10:00 am<br />
+<%= w.radio_button :time, '10:30 am' %> 10:30 am<br />
+<%= w.radio_button :time, '11:00 am' %> 11:00 am<br />
+<%= w.radio_button :time, '11:30 am' %> 11:30 am<br />
+<%= w.radio_button :time, '12:00 pm' %> 12:00 pm<br />
+<%= w.radio_button :time, '12:30 pm' %> 12:30 pm<br />
+<%= w.radio_button :time, '01:00 pm' %> 01:00 pm<br />
+<%= w.radio_button :time, '01:30 pm' %> 01:30 pm<br />
+<%= w.radio_button :time, '02:00 pm' %> 02:00 pm<br />
+<%= w.radio_button :time, '02:30 pm' %> 02:30 pm<br />
+<%= w.radio_button :time, '03:00 pm' %> 03:00 pm<br />
+<%= w.radio_button :time, '03:30 pm' %> 03:30 pm<br />
+<%= w.radio_button :time, '04:00 pm' %> 04:00 pm<br />
+<%= w.radio_button :time, '04:30 pm' %> 04:30 pm<br />
+<%= w.radio_button :time, '05:00 pm' %> 05:00 pm<br /><br>
+<b>Please choose Age Group</b><br>
+<%= w.radio_button :age, 19.95 %> Adult (13 - 61) $19.95 <%= w.radio_button :age, 16.95 %> Children (2 - 12) $16.95 <%= w.radio_button :age, 0.00 %> Children (younger than 2) Free <%= w.radio_button :age, 17.95 %> Seniors (62 and or up) $17.95 <%= w.radio_button :age, 17.95 %> Military (ID Required) $17.95 <br><br>
+<b>Available Attractions</b><br>
+
+  <select name="attraction_id">
+    <%= @attractions.each do |attraction| %>
+      <option value="<%= attraction.id %>"><%= attraction.name %></option>
+    <% end %>
+  </select>
+
+
+
+<%= w.submit "Submit" %> 
+<% end %>

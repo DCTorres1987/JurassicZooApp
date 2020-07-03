@@ -3,15 +3,20 @@ Rails.application.routes.draw do
 
 
   resources :zoos, only: [:index, :show] do 
-    resources :workers, only: [:create, :new, :show]
+
+    resources :attractions, only: [:index, :show]
+
     resources :users, only: [:create, :new, :show] do 
-      resources :tickets, only: [:create, :new, :show]
+
+      resources :tickets, only: [:create, :new, :index]
       resources :reviews, only: [:index, :new, :create, :update, :destroy]
     end 
-    resources :attractions, only: [:index, :show]
+
+    
   end
 
   root 'zoo#index'
 
 
 end
+

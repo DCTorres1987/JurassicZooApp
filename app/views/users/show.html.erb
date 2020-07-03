@@ -10,6 +10,7 @@
         </section>
 
         <section id="rates" class="section-cell">
+          
           <h2>General Admission Rates <span>(per visit)</span></h2>
           <div class="table">
             <p><strong>Adults</strong> (ages 13–61) <span>— $19.95 per person</span></p>
@@ -21,5 +22,5 @@
           </div>
         </section>
         
-        <a href="https://etickets.riverbanks.org/" class="section-button left-button">Buy Tickets Now</a><!-- Park Free <span>— Buy Tickets Now</span> --><a href="https://www.riverbanks.org/membership/" class="section-button right-button">Save More <span>with Membership</span></a>
+        <%= link_to "Purchase a Ticket!", new_zoo_user_ticket_path(@user.id,@user.zoo.id) %>
       </div>

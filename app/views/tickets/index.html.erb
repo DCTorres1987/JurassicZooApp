@@ -1,0 +1,13 @@
+<ul>  
+  <%= cart.each do |ticket| %>
+    <li><%= ticket %></li>
+  <% end %>
+</ul>
+
+<%= form_tag ({controller: 'tickets',
+    action: 'add',
+    method: 'post'}) do %>
+
+  <input name=ticket>
+  <input type=submit value='add to cart'>
+<% end %>
