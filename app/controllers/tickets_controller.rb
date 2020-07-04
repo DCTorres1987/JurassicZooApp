@@ -2,20 +2,22 @@ class TicketsController < ApplicationController
 
     def new
   
-        @attractions = Attraction.where(zoo_id: params[:zoo_id])
+        @attractions ||= Attraction.where(zoo_id: params[:zoo_id])
         @ticket = Ticket.new(user_id: params[:user_id], zoo_id: params[:zoo_id])
 
     end
   
     def show
-        @tickets = Ticket.find(params[:id])
+        @tickets ||= Ticket.find(params[:id])
     end 
 
     def create
         @ticket = Ticket.create(ticket_params)
+    
         if @ticket.save
-        redirect_to zoo_user_ticket_path(@ticket.user.id)
+        redirect_to zoo_user_ticket_path(@ticket.user_id, @ticket.zoo_id, @ticket.id)
         else 
+            byebug
         render :new
         end 
     end
@@ -23,8 +25,8 @@ class TicketsController < ApplicationController
     private
 
     def ticket_params
-        byebug
-        params.require(:ticket).permit(:price, :time, :attraction_id, :user_id, :zoo_id)
+    
+        params.require(:ticket).permit(:time, :price, :attraction_id, :user_id, :zoo_id)
     end         
 
 end

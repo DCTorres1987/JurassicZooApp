@@ -9,5 +9,4 @@ class Ticket < ApplicationRecord
         ticket.price
         end 
     end
-
 end

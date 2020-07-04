@@ -5,7 +5,7 @@ class ZoosController < ApplicationController
     end
 
     def show 
-         @zoo = Zoo.find(params[:id])
+         @zoo ||= Zoo.find(params[:id])
     end
 
     

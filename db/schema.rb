@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 2020_07_01_113753) do
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.decimal "price"
-    t.datetime "time"
+    t.string "time"
+    t.string "price"
     t.integer "attraction_id"
     t.integer "user_id"
     t.integer "zoo_id"

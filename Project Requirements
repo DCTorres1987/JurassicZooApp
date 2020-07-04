@@ -21,7 +21,7 @@ Your models must:
 
     [X] You must include a nested index or show route
 
-[]  Your forms should correctly display validation errors.
+[X]  Your forms should correctly display validation errors.
 
 []  Your fields should be enclosed within a fields_with_errors class
 
@@ -29,9 +29,9 @@ Your models must:
 
 []  Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app.
 
-[]  Logic present in your controllers should be encapsulated as methods in your models.
+[]  Logic present in yourS controllers should be encapsulated as methods in your models.
 
-[]  Your views should use helper methods and partials when appropriate.
+[X]  Your views should use helper methods and partials when appropriate.
 
 []  Follow patterns in the Rails Style Guide and the Ruby Style Guide.
 

@@ -24,3 +24,5 @@
         
         <%= link_to "Purchase a Ticket!", new_zoo_user_ticket_path(@user.id,@user.zoo.id) %>
       </div>
+
+      <%= link_to "Leave a Review", new_zoo_user_review_path(@user.id, @user.zoo_id) %>
