@@ -20,17 +20,17 @@ ActiveRecord::Schema.define(version: 2020_07_01_113753) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "zoo_id"
-    t.integer "user_id"
-    t.string "stars"
+    t.integer "stars"
     t.string "review"
+    t.integer "user_id"
+    t.integer "zoo_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tickets", force: :cascade do |t|
     t.string "time"
-    t.string "price"
+    t.integer "price"
     t.integer "attraction_id"
     t.integer "user_id"
     t.integer "zoo_id"

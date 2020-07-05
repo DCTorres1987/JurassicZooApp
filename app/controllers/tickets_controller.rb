@@ -8,7 +8,7 @@ class TicketsController < ApplicationController
     end
   
     def show
-        @tickets ||= Ticket.find(params[:id])
+        @ticket ||= Ticket.find(params[:id])
     end 
 
     def create
@@ -17,7 +17,6 @@ class TicketsController < ApplicationController
         if @ticket.save
         redirect_to zoo_user_ticket_path(@ticket.user_id, @ticket.zoo_id, @ticket.id)
         else 
-            byebug
         render :new
         end 
     end

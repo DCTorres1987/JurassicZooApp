@@ -1,14 +1,20 @@
-<h1>Leave a Review!</h1>
-<%= byebug %>
-<%= form_for @review, url: zoo_user_tickets_path(@review.user_id, @review.zoo_id), method: :post do |w| %>
+<h1><u>Leave a Review!</u></h1>
+<img src="https://nikolausrusticwoodworkcom.files.wordpress.com/2017/03/images.png" alt="rss feed" />
+<%= form_for @review, url: zoo_user_reviews_path(@review.user_id, @review.zoo_id), method: :post do |w| %>
 
+ <b> Star Rating:</b> 
+               1 <%= w.radio_button :stars, 1 %>
+               2 <%= w.radio_button :stars, 2 %>  
+               3 <%= w.radio_button :stars, 3 %>
+               4 <%= w.radio_button :stars, 4 %>
+               5 <%= w.radio_button :stars, 5 %>
+  <p>
+  <%= w.label :review %>
+  <%= w.text_area :review %>
+</p>
+<%= w.hidden_field :user_id, value: @review.user_id %>
+<%= w.hidden_field :zoo_id, value: @review.zoo_id %>
 
-<form method="POST" action="/books/<%= @book.id %>/review">
-  Star Rating: 1 <input type="radio" name="rating" ng-model="selected" value="1" id="rating"> 
-               2 <input type="radio" name="rating" ng-model="selected" value="2" id="rating">  
-               3 <input type="radio" name="rating" ng-model="selected" value="3" id="rating"> 
-               4 <input type="radio" name="rating" ng-model="selected" value="4" id="rating"> 
-               5 <input type="radio" name="rating" ng-model="selected" value="5" id="rating"> 
-  <br>Comment: <textarea name="commenttext" id= "commenttext"></textarea>
-  <input type="submit" value="Submit">
-</form>
+  <%= w.submit "Submit" %>
+
+<% end %>
