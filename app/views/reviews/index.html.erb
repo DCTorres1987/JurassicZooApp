@@ -1,0 +1,9 @@
+<h1>List of Reviews</h1>
+
+    <% @reviews.each.with_index(1) do |review, index| %> 
+       <%= index %>.
+       <b>Park: </b><%= review.user.zoo.name %>
+       <b>Username: </b><%= review.user.username %>
+       <b>Stars: </b><%= review.stars %>
+       <b>Review: </b><%= review.review %><br><br>
+    <% end %>

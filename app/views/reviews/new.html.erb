@@ -1,20 +1,25 @@
-<h1><u>Leave a Review!</u></h1>
-<img src="https://nikolausrusticwoodworkcom.files.wordpress.com/2017/03/images.png" alt="rss feed" />
-<%= form_for @review, url: zoo_user_reviews_path(@review.user_id, @review.zoo_id), method: :post do |w| %>
+<h3>
+<font color="white">
+  <h1><u>Leave a Review!</u></h1>
+  <h1><img src="https://nikolausrusticwoodworkcom.files.wordpress.com/2017/03/images.png" alt="rss feed" /></h1>
+  <%= form_for @review, url: zoo_user_reviews_path(@review.zoo_id, @review.user_id), method: :post do |w| %>  
 
- <b> Star Rating:</b> 
-               1 <%= w.radio_button :stars, 1 %>
-               2 <%= w.radio_button :stars, 2 %>  
-               3 <%= w.radio_button :stars, 3 %>
-               4 <%= w.radio_button :stars, 4 %>
-               5 <%= w.radio_button :stars, 5 %>
-  <p>
-  <%= w.label :review %>
-  <%= w.text_area :review %>
-</p>
-<%= w.hidden_field :user_id, value: @review.user_id %>
-<%= w.hidden_field :zoo_id, value: @review.zoo_id %>
+ 
+    <b>Star Rating:</b> 
+    <% rating.each do |r| %>
+        <%= r %> <%= w.radio_button :stars, r %>
+    <% end %>
+    <p>
+      <%= w.label :review %>
+      <%= w.text_area :review %>
+    </p>
+  
+</font>
+  <%= w.hidden_field :user_id, value: @review.user_id %>
+  <%= w.hidden_field :zoo_id, value: @review.zoo_id %>
 
-  <%= w.submit "Submit" %>
+  <%= w.submit "Submit" %>  
+  <% end %>
+</h3>
 
-<% end %>
+  

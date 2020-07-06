@@ -1,29 +1,28 @@
-<h1>Purchase a Ticket</h1>
+<font color="white">
+    <h1>Purchase a Ticket</h1>
+    <%= render partial: 'tickets/errors', locals: { record: @ticket } %>
 
-<%= form_for @ticket, url: zoo_user_tickets_path(@ticket.user_id, @ticket.zoo_id), method: :post do |w| %>
+    <%= form_for @ticket, url: zoo_user_tickets_path(@ticket.user_id, @ticket.zoo_id), method: :post do |w| %>
 
+        <b>Times</b><br>
+        <% zoo_times["times"].each do |t| %>
+            <div><%= w.radio_button :time, t %> <%= t %></div>
+        <% end %><br><br>
 
-<b>Times</b><br>
-<% zoo_times["times"].each do |t| %>
-<p><%= w.radio_button :time, t %> <%= t %></p>
-<% end %>
-
-<b>Please choose Age Group</b><br> 
-<% zoo_times["prices"].each do |p| %>
-    <% p.each do |key, value| %>
+        <b>Please choose Age Group</b><br> 
+            <% zoo_times["prices"].each do |p| %>
+                <% p.each do |key, value| %>
     
-    <%= w.radio_button :price, value %> <%= key %> 
-    <% end %>
-<% end %><br><br>
+                  <div><p><%= w.radio_button :price, value %> <%= key %></p></div>
+                <% end %>
+            <% end %><br>
 
-<b>Available Attractions</b><br>
+        <b>Available Attractions</b><br>
 
-<%= w.collection_select :attraction_id, Attraction.all, :id, :name %>
+        <%= w.collection_select :attraction_id, Attraction.all, :id, :name %>
 
-<%= w.hidden_field :user_id, value: @ticket.user_id %>
-<%= w.hidden_field :zoo_id, value: @ticket.zoo_id %>
-
-
-
-<%= w.submit "Submit" %> 
-<% end %>
+        <%= w.hidden_field :user_id, value: @ticket.user_id %>
+        <%= w.hidden_field :zoo_id, value: @ticket.zoo_id %>
+</font>
+        <%= w.submit "Submit" %> 
+        <% end %>

@@ -1,1 +1,10 @@
-<h1>Review Show Page</h1>
+<font color="white">
+    <h1>Thank you for leaving a review!</h1>
+    <h2>Park: <%= @review.user.zoo.name %></h2>
+
+        <b>User Name:</b> <%= @review.user.username %>
+        <b>Star Rating:</b> <%= @review.stars %>
+        <b>Review:</b> <%= @review.review %>
+    <br><br>
+    <%= number_of_reviews %> <%= link_to  "Reviews", zoo_user_reviews_path(@review.user.zoo.id, @review.user.id) %>
+</font>

@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+ .field_with_errors {
+    border-left: 2px solid red;
+
+ }
+
+  body {
+    background: url('Background3.jpg') no-repeat center center;
+    background-size: cover;}  /* For a full size background image */
+
+h1,
+h2,
+h3 {
+  text-align: center;
+}

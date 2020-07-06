@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
     def new 
+      
       @user = User.new(zoo_id: params[:zoo_id])
     end
 
@@ -8,11 +9,14 @@ class UsersController < ApplicationController
       @user ||= User.find(params[:id])
     end 
 
+    def login
+    end
+
     def create
-     
+          
         @user = User.create(user_params)
         if @user.save
-          redirect_to zoo_user_path(@user.id,@user.zoo_id)
+          redirect_to zoo_user_path(@user.zoo_id, @user.id)
         else 
           render :new
         end 

@@ -1,15 +1,16 @@
-<h2>Hello Visitor! Create an Account!</h2>
+<font color="white">
+  <h4>Hello Visitor! Create an Account!</h4>
 
-<%= render partial: '/errors', locals: { record: @user } %>
+  <%= render partial: 'users/errors', locals: { record: @user } %>
 
-<%= form_for @user, url: zoo_users_path(@user.zoo.id), method: :post do |w| %>
-<%= w.hidden_field :zoo_id, :value => @user.zoo.id %>
-<p>
-  <%= w.label :name %>
-  <%= w.text_field :name %>
-</p>
+  <%= form_for @user, url: zoo_users_path(@user.zoo.id), method: :post do |w| %>
+    <%= w.hidden_field :zoo_id, :value => @user.zoo.id %>
 
-<%= render 'form' %>
+    <p>
+      <%= w.label :name %>
+      <div><%= w.text_field :name %></div>
+    </p>
+</font>
 
-
-<% end %>
+  <%= render 'form' %>
+  <% end %>

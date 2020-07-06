@@ -3,7 +3,7 @@ class TicketsController < ApplicationController
     def new
   
         @attractions ||= Attraction.where(zoo_id: params[:zoo_id])
-        @ticket = Ticket.new(user_id: params[:user_id], zoo_id: params[:zoo_id])
+        @ticket = Ticket.new(zoo_id: params[:zoo_id], user_id: params[:user_id])
 
     end
   
@@ -15,7 +15,7 @@ class TicketsController < ApplicationController
         @ticket = Ticket.create(ticket_params)
     
         if @ticket.save
-        redirect_to zoo_user_ticket_path(@ticket.user_id, @ticket.zoo_id, @ticket.id)
+        redirect_to zoo_user_ticket_path(@ticket.zoo_id, @ticket.user_id, @ticket.id)
         else 
         render :new
         end 

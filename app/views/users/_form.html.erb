@@ -1,15 +1,19 @@
-<p>
-  <label>Email: </label><br>
-  <%= text_field_tag :email, @user.name %>
-</p>
-<p>
-  <label>Username:</label><br>
-  <%= text_field_tag :username, @user.username %>
-</p>
-<p>
-  <label>Password:</label><br>
-  <%= text_field_tag :password_digest, @user.password_digest %>
+
+
+  <font color="white"><p>
+  <%= label(:user, :email) %>
+  <div><%= text_field(:user, :email) %></div>
+  </p>
+
+  <p>
+  <%= label(:user, :username) %>
+  <div><%= text_field(:user, :username) %></div>
+  </p>
+
+  <p>
+  <%= label(:user, :password) %>
+  <div><%= text_field(:user, :password_digest) %></div>
+  </p></font>
 
   <%= submit_tag "Submit" %> 
 
-</p>

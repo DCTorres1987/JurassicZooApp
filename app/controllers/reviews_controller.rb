@@ -1,14 +1,16 @@
 class ReviewsController < ApplicationController
     def index
+        byebug
         @reviews = Review.all
     end 
 
     def show
         @review ||= Review.find(params[:id])
+        @reviews = Review.all.select{|r| r.zoo_id == params[:zoo_id].to_i}
     end 
 
     def new 
-        @review = Review.new(user_id: params[:user_id], zoo_id: params[:zoo_id])
+        @review = Review.new(zoo_id: params[:zoo_id], user_id: params[:user_id])
     end 
 
     def create 
