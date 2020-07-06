@@ -1,4 +1,8 @@
 <font color="white">
+    <style type="text/css">
+        a:link {color: #FFFDD0}
+        a:visited {color: #EFFD5F}
+    </style>
     <h1>Thank you for leaving a review!</h1>
     <h2>Park: <%= @review.user.zoo.name %></h2>
 
@@ -7,4 +11,5 @@
         <b>Review:</b> <%= @review.review %>
     <br><br>
     <%= number_of_reviews %> <%= link_to  "Reviews", zoo_user_reviews_path(@review.user.zoo.id, @review.user.id) %>
+    <%= link_to  "Home", zoos_path %>
 </font>

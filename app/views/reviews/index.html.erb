@@ -1,4 +1,9 @@
-<h1>List of Reviews</h1>
+<font color="white">
+    <style type="text/css">
+        a:link {color: #FFFDD0}
+        a:visited {color: #EFFD5F}
+    </style>
+<h1>All Reviews</h1>
 
     <% @reviews.each.with_index(1) do |review, index| %> 
        <%= index %>.
@@ -7,3 +12,12 @@
        <b>Stars: </b><%= review.stars %>
        <b>Review: </b><%= review.review %><br><br>
     <% end %>
+Filter:
+        <%= link_to "All", zoo_user_reviews_path %>
+        <%= link_to "*****", zoo_user_five_stars_path %>
+        <%= link_to "****", zoo_user_four_stars_path %>
+        <%= link_to "***", zoo_user_three_stars_path %>
+        <%= link_to "**", zoo_user_two_stars_path %>
+        <%= link_to "*", zoo_user_one_stars_path %><br><br>
+
+</font>

@@ -1,6 +1,10 @@
 <font color="white">
+    <style type="text/css">
+        a:link {color: #FFFDD0}
+        a:visited {color: #EFFD5F}
+    </style>
   <h1> Please see below for our Package</h1>
-  <img src= <%= @user.zoo.image %> alt="rss feed" /><br> 
+  <h2><img src= <%= @user.zoo.image %> alt="rss feed" /></h2><br> 
     <div class="section-grid">
         <section id="hours" class="section-cell">
         <h2>Hours of Operation <span>(subject to change)</span></h2>
@@ -23,6 +27,7 @@
         </section>
         
         <%= link_to "Purchase a Ticket!", new_zoo_user_ticket_path(@user.zoo.id, @user.id) %> 
-        <%= link_to "Write a Review", new_zoo_user_review_path(@user.zoo_id, @user.id) %>
+        <%= link_to "Write a Review", new_zoo_user_review_path(@user.zoo_id, @user.id) %><br><br>
+
     </div>
 </font>

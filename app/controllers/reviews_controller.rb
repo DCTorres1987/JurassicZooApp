@@ -1,8 +1,32 @@
 class ReviewsController < ApplicationController
     def index
-        byebug
         @reviews = Review.all
     end 
+
+    def five_stars
+        @reviews = Review.five_stars
+        render :index
+    end
+
+    def four_stars
+        @reviews = Review.four_stars
+        render :index
+    end
+
+    def three_stars
+        @reviews = Review.three_stars
+        render :index
+    end
+
+    def two_stars
+        @reviews = Review.two_stars
+        render :index
+    end
+
+    def one_stars
+        @reviews = Review.one_stars
+        render :index
+    end
 
     def show
         @review ||= Review.find(params[:id])
