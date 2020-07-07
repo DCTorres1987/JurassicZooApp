@@ -1,10 +1,6 @@
 <font color="white">
-    <style type="text/css">
-        a:link {color: #FFFDD0}
-        a:visited {color: #EFFD5F}
-    </style>
     <h1>Purchase a Ticket</h1>
-    <%= render partial: 'tickets/errors', locals: { record: @ticket } %>
+    <%= render partial: '/errors', locals: { record: @ticket } %>
 
     <%= form_for @ticket, url: zoo_user_tickets_path(@ticket.user_id, @ticket.zoo_id), method: :post do |w| %>
 

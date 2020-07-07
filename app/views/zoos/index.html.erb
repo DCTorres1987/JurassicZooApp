@@ -1,12 +1,9 @@
 <font color="white">
+   
     <h1>Dinosaur Parks!</h1>
     <h2>Plan a visit!  Your journey begins!</h2>
 
     <h2><img src="https://i.dailymail.co.uk/1s/2018/11/23/15/6558164-6421725-image-a-36_1542985253056.jpg" alt="rss feed" /></h2>
-    <style type="text/css">
-        a:link {color: #FFFDD0}
-        a:visited {color: #EFFD5F}
-    </style>
     <% @zoos.each do |z| %>
         <h3><b><%= link_to z.name, zoo_path(z.id) %></b><br>
         <%= z.location %><br></h3>

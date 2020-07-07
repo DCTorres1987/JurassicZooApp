@@ -15,11 +15,12 @@ Rails.application.routes.draw do
       get '/three_stars', to: 'reviews#three_stars'
       get '/two_stars', to: 'reviews#two_stars'
       get '/one_stars', to: 'reviews#one_stars'
-    end 
-
-    
+    end     
   end
-
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
+  
   root 'zoo#index'
 
 

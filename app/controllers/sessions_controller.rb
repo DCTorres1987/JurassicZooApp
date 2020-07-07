@@ -1,25 +1,26 @@
 class SessionsController < ApplicationController
 
-    def new
+  def new
+  end
+
+  def create
+    @user = User.find_by(username: params[:username])
+    if !@user
+        @error = "Account not found. Please try again."
+        render :new
+
+    elsif !@user.authenticate(params[:password])
+      @error = "Password Incorrect. Please try again."
+      render :new
+
+    else
+      log_in(@user)
+      redirect_to zoo_user_path(@user.zoo_id, @user.id)
     end
-  
-    def create
-      worker = User.find_by(name: params[:worker][:name])
-  
-      worker = worker.try(:authenticate, params[:worker][:password])
-  
-      return redirect_to(controller: 'sessions', action: 'new') unless worker
-  
-      session[:worker_id] = worker.id
-  
-      @worker = worker
-  
-      redirect_to controller: 'zoo', action: 'index'
-    end
-  
-    def destroy
-      session.delete :worker_id
-  
-      redirect_to '/'
-    end
+  end
+
+  def destroy
+    session.clear
+    redirect_to zoos_path
+  end
 end

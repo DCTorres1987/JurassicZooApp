@@ -3,10 +3,7 @@
     <h3><%= @zoo.location %><br>
         <img src= <%= @zoo.image %> alt="rss feed" /><br>
 
-        <style type="text/css">
-            a:link {color: #FFFDD0}
-            a:visited {color: #EFFD5F}
-        </style>
+
         <%= link_to "Plan a Visit", new_zoo_user_path(@zoo.id) %>
     </h3> 
 </font>
