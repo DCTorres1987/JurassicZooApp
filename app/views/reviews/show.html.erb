@@ -7,5 +7,4 @@
         <b>Review:</b> <%= @review.review %>
     <br><br>
     <%= number_of_reviews %> <%= link_to  "Reviews", zoo_user_reviews_path(@review.user.zoo.id, @review.user.id) %>
-    <%= link_to  "Home", zoos_path %>
 </font>

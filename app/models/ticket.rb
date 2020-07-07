@@ -4,9 +4,4 @@ class Ticket < ApplicationRecord
     validates :time, presence: true
     validates :price, presence: true
 
-    def total
-        self.price.sum do |p|
-        ticket.price
-        end 
-    end
 end

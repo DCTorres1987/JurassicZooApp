@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 
     else
       log_in(@user)
-      redirect_to zoo_user_path(@user.zoo_id, @user.id)
+      redirect_to zoos_path(@user.zoo_id, @user.id)
     end
   end
 

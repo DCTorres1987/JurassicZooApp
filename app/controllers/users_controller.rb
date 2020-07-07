@@ -2,7 +2,14 @@ class UsersController < ApplicationController
 
     def new 
       # Renders signup form
-      @user = User.new(zoo_id: params[:zoo_id])
+      @user = current_user
+      if logged_in?
+        redirect_to zoo_user_path(@user.zoo_id, @user.id)
+      
+      else 
+        @user = User.new(zoo_id: params[:zoo_id])
+      end
+
     end
 
     def show 
@@ -18,7 +25,7 @@ class UsersController < ApplicationController
         @user = User.create(user_params)
         if @user.save
           log_in(@user)
-          redirect_to zoo_user_path(@user.zoo_id, @user.id)
+          redirect_to zoos_path(@user.zoo_id, @user.id)
         else 
           render :new
         end 

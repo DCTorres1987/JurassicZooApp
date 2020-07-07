@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
     def index
-
         @reviews = Review.all
     end 
 
@@ -26,7 +25,7 @@ class ReviewsController < ApplicationController
 
     def one_stars
         @reviews = Review.one_stars
-        render :index
+        
     end
 
     def show
@@ -35,7 +34,12 @@ class ReviewsController < ApplicationController
     end 
 
     def new 
-        @review = Review.new(zoo_id: params[:zoo_id], user_id: params[:user_id])
+        @review = Review.find_by(zoo_id: params[:zoo_id], user_id: params[:user_id])
+        if @review.nil?
+            @review = Review.new(zoo_id: params[:zoo_id], user_id: params[:user_id])
+        else
+            redirect_to zoo_user_review_path(@review.user_id, @review.zoo_id, @review.id)
+        end
     end 
 
     def create 
