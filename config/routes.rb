@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :new, :show] do 
 
       resources :tickets, only: [:create, :new, :show]
-      resources :reviews, only: [:new, :create, :show, :index, :edit, :destroy]
+      resources :reviews, only: [:new, :create, :show, :index, :edit, :update, :destroy]
       get '/five_stars', to: 'reviews#five_stars'
       get '/four_stars', to: 'reviews#four_stars'
       get '/three_stars', to: 'reviews#three_stars'

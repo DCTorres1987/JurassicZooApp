@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
         @reviews = Review.one_stars
         render :index
     end
-    # _
+    # _____________________________
 
     def show        
         @review = get_review
@@ -50,7 +50,7 @@ class ReviewsController < ApplicationController
             @review = Review.new(zoo_id: params[:zoo_id], user_id: params[:user_id]) 
                       
         else
-            redirect_to zoo_user_review_path(@review.zoo_id, @review.user_id,  @review.id)  
+            send_to_user_review_page  
                        
         end
     end 
@@ -59,20 +59,42 @@ class ReviewsController < ApplicationController
         @review = current_user.reviews.build(review_params)
     
         if @review.save
-            redirect_to zoo_user_review_path(@review.zoo_id, @review.user_id,  @review.id)
+            send_to_user_review_page
 
         else        
             render :new
         end 
     end 
 
+    def edit
+        @review = get_review 
+    end
+
     def update
+        @review = get_review 
+
+        @review.update(review_params)
+        
+        if @review.save
+            send_to_user_review_page
+        else 
+            flash[:alert] = "Did not update."
+            render :edit
+        end
+
     end 
 
     def destroy
+        get_review.destroy
+        redirect_to zoo_user_path(@user.zoo_id, @user.id)
     end
 
     private
+
+    def send_to_user_review_page
+        redirect_to zoo_user_review_path(@review.zoo_id, @review.user_id,  @review.id)
+
+    end
 
     def get_review
         @review = Review.find_by(zoo_id: params[:zoo_id], user_id: params[:user_id])

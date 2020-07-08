@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       @user = current_user 
 
       if logged_in? && @user.id == params[:id].to_i
-        S@user ||= User.find(params[:id])
+        @user ||= User.find(params[:id])
 
       else 
         redirect_to zoos_path
