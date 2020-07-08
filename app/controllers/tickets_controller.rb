@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+    before_action :require_login
 
     def new
   
@@ -15,9 +16,9 @@ class TicketsController < ApplicationController
         @ticket = Ticket.create(ticket_params)
     
         if @ticket.save
-        redirect_to zoo_user_ticket_path(@ticket.zoo_id, @ticket.user_id, @ticket.id)
+            redirect_to zoo_user_ticket_path(@ticket.zoo_id, @ticket.user_id, @ticket.id)
         else 
-        render :new
+            render :new
         end 
     end
 

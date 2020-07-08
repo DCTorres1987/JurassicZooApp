@@ -19,6 +19,7 @@
   <%= w.hidden_field :zoo_id, value: @review.zoo_id %>
 
   <%= w.submit "Submit" %>  
+  <%= number_of_reviews %> <%= link_to  "Reviews", zoo_user_reviews_path(@review.user.zoo.id, @review.user.id) %>
   <% end %>
 </h3>
 

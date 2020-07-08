@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     end
 
     def require_login
-        redirec_to zoos_path unless logged_in?
+        redirect_to zoos_path unless logged_in?
     end
 
     def logged_in?
