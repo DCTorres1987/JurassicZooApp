@@ -7,9 +7,7 @@ class ZoosController < ApplicationController
 
     def show 
          @zoo ||= Zoo.find_by(id: params[:id])
-         if @zoo.nil?
-            redirect_to zoos_path
-         end 
+         zoo_exist?
     end
 
     

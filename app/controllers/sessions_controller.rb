@@ -16,12 +16,12 @@ class SessionsController < ApplicationController
 
     else
         log_in(@user)
-        redirect_to zoos_path(@user.zoo_id, @user.id)
+        send_to_user_page
     end
   end
 
   def destroy
     session.clear
-    redirect_to zoos_path
+    send_to_home_page
   end
 end

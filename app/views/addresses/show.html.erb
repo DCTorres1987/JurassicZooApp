@@ -1,0 +1,9 @@
+<font color="white">
+<h1>Your Hired! Welcome to the team, <%= @address.user.name %></h1>
+<h1><img src="http://cdn.akaup.com/akairan/user/12/201561911192288a.jpg" alt="rss feed" /></h1>
+
+<h3>Your responsibility is to feed the Dinosaurs. Please keep our Dinosaurs happy. If they go too long without food things just might get scary..<h3>
+<%= link_to "Start Now", new_user_feeding_path(@address.user.id) %>
+
+
+</font>

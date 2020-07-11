@@ -3,7 +3,7 @@
 
   <h1><img src="https://nikolausrusticwoodworkcom.files.wordpress.com/2017/03/images.png" alt="rss feed" /></h1>
 <h3>
-  <%= form_for @review, url: zoo_user_review_path(@review.zoo_id, @review.user_id, @review.id), method: :patch do |w| %>  
+  <%= form_for @review, url: user_review_path(@review.user_id, @review.id), method: :patch do |w| %>  
 
  
     <b>Star Rating:</b> 
@@ -17,7 +17,6 @@
 </font>
 
   <%= w.hidden_field :user_id, value: @review.user_id %>
-  <%= w.hidden_field :zoo_id, value: @review.zoo_id %>
 
   <%= w.submit "Submit" %>  
 <% end %>

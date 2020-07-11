@@ -7,17 +7,17 @@
 
     <% @reviews.each.with_index(1) do |review, index| %> 
        <%= index %>.
-       <b>Park: </b><%= review.user.zoo.name %>
+       <b>Park: </b><%= review.attraction.name %>
        <b>Username: </b><%= review.user.username %>
        <b>Stars: </b><%= review.stars %>
        <b>Review: </b><%= review.review %><br><br>
     <% end %>
 Filter:
-        <%= link_to "All", zoo_user_reviews_path %>
-        <%= link_to "*****", zoo_user_five_stars_path %>
-        <%= link_to "****", zoo_user_four_stars_path %>
-        <%= link_to "***", zoo_user_three_stars_path %>
-        <%= link_to "**", zoo_user_two_stars_path %>
-        <%= link_to "*", zoo_user_one_stars_path %><br><br>
+        <%= link_to "All", user_reviews_path %>
+        <%= link_to "*****", user_five_stars_path %>
+        <%= link_to "****", user_four_stars_path %>
+        <%= link_to "***", user_three_stars_path %>
+        <%= link_to "**", user_two_stars_path %>
+        <%= link_to "*", user_one_stars_path %><br><br>
 
 </font>

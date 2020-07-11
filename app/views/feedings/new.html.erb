@@ -1,0 +1,43 @@
+<font color="white"><h1>Feeding Time!</h1>
+<h2>Please provide food or water to all the dinosaurs to keep them healthy and happy</h2>
+
+<%= form_for @feeding, url: user_feedings_path(@feeding.user_id), method: :post do |f| %>
+
+
+    <% @dinosaurs.each do |d| %>
+     <%# iterates through list of dinosaurs %>
+
+            <% if d.feedings.last.nil?  %>
+            <%# checks to see when dinosaur was last fed %>
+                    <% if @time_now > d.created_at.time.to_s(:long).to_datetime + 30.minutes   %>
+                    <%#  %>
+                        <font color="Orange">Hungry</font>
+                    <% elsif @time_now > d.created_at.time.to_s(:long).to_datetime + 60.minutes %>
+                        <font color="Red">Starving</font>
+                    <% else %>
+                        <font color="Green">Happy</font>
+                    <% end %> <br>  
+
+            <% else %>  
+
+                    <% if @time_now > d.feedings.last.created_at.time.to_s(:long).to_datetime + 30.minutes   %>
+                        <font color="Orange">Hungry</font>
+                    <% elsif @time_now > d.feedings.last.created_at.time.to_s(:long).to_datetime + 60.minutes %>
+                        <font color="Red">Starving</font>
+                    <% else %>
+                        <font color="Green">Happy</font>
+                    <% end %> <br>              
+            <% end %>
+
+    <img src= <%= d.image %> alt="rss feed" />
+            <% dino_care.each do |c| %>
+            <%= f.radio_button :sustenance, c %><%= c %>
+             <% end %><br><br>
+    <br><%= d.name %> <%= f.radio_button :dinosaur_id, d.id %><br>
+    <% end %>
+    <%= f.hidden_field :user_id, value: @feeding.user_id %>
+
+    <%= f.submit "Submit" %> 
+
+<% end %>
+</font>

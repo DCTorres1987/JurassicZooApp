@@ -2,7 +2,7 @@
     <h1>Purchase a Ticket</h1>
     <%= render partial: '/errors', locals: { record: @ticket } %>
 
-    <%= form_for @ticket, url: zoo_user_tickets_path(@ticket.user_id, @ticket.zoo_id), method: :post do |w| %>
+    <%= form_for @ticket, url: user_tickets_path(@ticket.user_id), method: :post do |w| %>
 
         <b>Times</b><br>
         <% zoo_times["times"].each do |t| %>
@@ -19,10 +19,9 @@
 
         <b>Available Attractions</b><br>
 
-        <%= w.collection_select :attraction_id, Attraction.all, :id, :name %>
+        <%= w.collection_select :attraction_id, Attraction.all , :id, :name %>
 
         <%= w.hidden_field :user_id, value: @ticket.user_id %>
-        <%= w.hidden_field :zoo_id, value: @ticket.zoo_id %>
 </font>
         <%= w.submit "Submit" %> 
         <% end %>

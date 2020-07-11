@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
     belongs_to :user
-    belongs_to :zoo
+    belongs_to :attraction
     validates :stars, presence: true
     validates :review, presence: true
     scope :five_stars, -> { where(stars: 5) }

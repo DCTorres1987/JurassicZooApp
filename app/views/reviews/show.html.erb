@@ -1,13 +1,13 @@
 <font color="white">
     <h1>Thank you for leaving a review!</h1>
-    <h2>Park: <%= @review.user.zoo.name %></h2>
 
-        <b>User Name:</b> <%= @review.user.username %>
+    <h4>Park: <%= @review.attraction.name %></h4>
+
+        <b>User Name:</b> <%=@review.user.username %>
         <b>Star Rating:</b> <%= @review.stars %>
         <b>Review:</b> <%= @review.review %>
-        <%= link_to  "Edit Review", edit_zoo_user_review_path(@review.user.zoo.id, @review.user.id, @review.id) %><br>
+        <%= link_to  "Edit Review", edit_user_review_path(@review.user.id, @review.id) %><br>
     <br><br>
-    
-    <%= number_of_reviews %> <%= link_to  "Reviews", zoo_user_reviews_path(@review.user.zoo.id, @review.user.id) %><br>
+    <%= number_of_reviews %> <%= link_to  "Reviews", user_reviews_path(@review.user.id) %><br>
          
 </font>

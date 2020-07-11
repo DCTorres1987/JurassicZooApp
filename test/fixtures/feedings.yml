@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  care: MyString
+  user_id: 1
+  dinosaur_id: 1
+
+two:
+  care: MyString
+  user_id: 1
+  dinosaur_id: 1

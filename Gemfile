@@ -10,7 +10,7 @@ gem 'sqlite3', '~> 1.4'
 gem 'therubyracer'
 gem 'pry'
 gem 'bcrypt'
-gem "punching_bag"
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -35,6 +35,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'dotenv-rails'
 end
 
 group :development do

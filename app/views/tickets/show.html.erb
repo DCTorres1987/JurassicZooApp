@@ -1,4 +1,5 @@
 <font color="white">
+
     <h1>Please Print Out Your Ticket</h1>
     <h2><u>Purchase Summary</u></h2>
     <h3><%= @ticket.attraction.name %><br>
@@ -8,5 +9,7 @@
             __________________________________
         </p>
         <img src="https://mk0xucobucefof4dkp4y.kinstacdn.com/wp-content/uploads/2015/01/Jan-27-2015-Types-of-Barcodes-Choosing-the-Right-Barcode-UPC-CODE.jpg" alt="rss feed" />
+    </h3>
+    <%= link_to "Order History", user_tickets_path(@ticket.user.id) %>
     </h3>
 </font>

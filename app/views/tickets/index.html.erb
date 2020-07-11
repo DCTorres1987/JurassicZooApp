@@ -1,0 +1,12 @@
+<font color="white">
+<h1>Order History</h1>
+
+<% @tickets.each do |t| %>
+<u><%= t.attraction.zoo.name %></u><br>
+Park: <%= t.attraction.name %><br>
+Order Date: <%= t.time %><br>
+Price: <%= t.price %><br><br>
+
+<% end %>
+
+</font>

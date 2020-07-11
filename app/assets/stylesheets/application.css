@@ -47,3 +47,9 @@ a:link {
   a:active {
     color: yellow;
   }
+
+
+  footer {
+    background-color: #ebebeb;
+    padding: 30px 0;
+  }

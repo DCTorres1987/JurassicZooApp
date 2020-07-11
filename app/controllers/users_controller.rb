@@ -4,44 +4,59 @@ class UsersController < ApplicationController
       # Renders signup form
       @user = current_user
 
-      if logged_in? 
-          
-        redirect_to zoo_user_path(@user.zoo_id, @user.id)
+      if logged_in?         
+        send_to_user_page
       
-      else 
-        @user = User.new(zoo_id: params[:zoo_id])
-      end
+      else        
+        @user = User.new
 
+      end
+      
     end
+   
 
     def show         
-      # Displays ticket prices and zoo hours      
-      @user = current_user 
-
-      if logged_in? && @user.id == params[:id].to_i
-        @user ||= User.find(params[:id])
+      #retrieves current user 
+      #checks to see if user is logged in and matches user param
+      #if not a match it will redirect to home page
+      if user_check       
+        @worker = Address.find_by(user_id: params[:id])
+        @user = current_user
 
       else 
-        redirect_to zoos_path
+        send_to_user_page
+
       end
+
     end 
 
     def create
-          
-        @user = User.create(user_params)
-        
-        if @user.save
-          log_in(@user)
-          redirect_to zoos_path(@user.zoo_id, @user.id)
-        else 
-          render :new
-        end 
+      #creates new user record by params passed in from new page
+      @user = User.create(user_params)
+    
+      if @user.save
+      #if @user is saved log in user and direct to home page  
+        log_in(@user)
+        send_to_user_page
+
+      else 
+      #if @user doesn't save it will render new user page
+        render :new
+      end 
              
     end
      
-    private
+    private    
+
+    def user_check
+      #checks to see if user is logged in and parameter user id match
+      #for user page
+      @user = current_user
+      logged_in? && @user.id == params[:id].to_i
+    end
+
   
     def user_params
-        params.require(:user).permit(:name, :username, :email, :password, :password_confirmation, :zoo_id)
+        params.require(:user).permit(:name, :username, :email, :password, :password_confirmation)
     end
 end

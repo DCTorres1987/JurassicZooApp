@@ -3,8 +3,9 @@
     <h3><%= @zoo.location %><br>
         <img src= <%= @zoo.image %> alt="rss feed" /><br>
 
+<h3>During the Triassic, all the landmasses of the world were joined together, forming the single supercontinent, Pangaea. Because the continent was so huge, most inland areas were a long way from the ocean and there were extensive deserts. Only around the edges of the continent was there enough moisture for any vegetation. This was the time of the first dinosaurs and they lived everywhere.</h3>
 
-        <%= link_to "Plan a Visit", new_zoo_user_path(@zoo.id) %>
+        <%= link_to "Plan a Visit", new_user_path(@zoo.id) %>
     </h3> 
 </font>
 

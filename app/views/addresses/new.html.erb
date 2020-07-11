@@ -1,0 +1,21 @@
+<font color="white">
+<h1>Come be part of our team!  Fill out the below application</h1>
+
+<p>Our Dinosaur Zoo is looking for an exceptional zookeeper with a passion for working with exotic animal species. The ideal candidate will perform routine animal husbandry duties to maintain care and well-being of the animals. This position is responsible for the daily care of the animals in a given area, including the administration of regular food, water, and medication for individual animals. Will also be responsible for training and enrichment with all animals in the area daily. This position is responsible for maintaining area compliance with USDA and AZA regulations and standards.</p><br>
+
+<p>Normal duties will include day to day husbandry, daily log reports regarding the animals, routine maintenance of physical area and enclosures, assisting in vet procedures and medication distribution to animals, maintain training and enrichment programs, assist with special projects, etc. Keeper must be able to maintain area compliance with USDA and AZA regulations and standards, including record keeping, husbandry care, training, enrichment, etc. Keeper staff are required to work weekends and holidays as the animal care schedule necessitates.</p>
+
+<p>Candidate should have 4 year college degree or equivalent experience and at least 1 year of animal care experience in an AZA accredited facility. The candidate must be able to lift, bend, and twist 50 lbs, also must be able to work in all types of weather.</p><br>
+
+<p>Our Dinosaur Park is a member of a Drug-Free Workplace program, a pre-employment drug test and a background check will be performed. Due to the number of applications, we cannot take calls for this position, you will be contacted if you are selected for an interview.</p><br>
+
+<%= render partial: '/errors', locals: { record: @address } %>
+
+<%= form_for @address, url: user_addresses_path, method: :post do |a| %>
+
+<h4>Zookeeper Application</h4>
+  <%= render 'form' %>
+  <%= a.hidden_field :user_id, value: @address.user.id %>
+  <% end %>
+
+</font>
