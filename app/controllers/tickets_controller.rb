@@ -14,17 +14,9 @@ class TicketsController < ApplicationController
 
     end
   
-    def show              
-  
-        if user_check         
-            @ticket ||= Ticket.find_by(id: params[:id])
-             
-            if @ticket.nil?
-                send_to_user_page
-            end 
-        else
-            send_to_user_page
-        end
+    def show        
+        redirect_if_unauthorized     
+        @ticket ||= Ticket.find_by(id: params[:id])
 
     end 
 
@@ -38,8 +30,15 @@ class TicketsController < ApplicationController
         end 
     end
 
-    private
-  
+    private 
+
+    def get_ticket
+        @ticket = Ticket.find_by(user_id: params[:user_id],id: params[:id])
+    end
+
+    def redirect_if_unauthorized
+        redirect_to user_path(current_user.id) unless get_ticket
+    end 
  
 
     def ticket_params

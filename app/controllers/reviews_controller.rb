@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
     before_action :require_login
     
     def index
+        #retrieve all reviews
         @reviews = Review.all
     end 
 
@@ -33,7 +34,7 @@ class ReviewsController < ApplicationController
     # _____________________________
 
     def show  
-    
+        redirect_if_unauthorized
         @review = Review.find_by(user_id: params[:user_id], id: params[:id])
   
     end 
@@ -44,11 +45,12 @@ class ReviewsController < ApplicationController
 
     def create 
         #retrieves review by attraction id
-
-        @review = get_review_by_attraction
         #if review dosent' exist create review record useing review paramss
         #if review exist it will render review show page
         #if review saves successfully it will render show page
+
+        @review = get_review_by_attraction
+
 
         if @review.nil? 
             @review = current_user.reviews.build(review_params)
@@ -67,17 +69,20 @@ class ReviewsController < ApplicationController
     end 
 
     def edit
+        #retrieves review by review id
         @review = get_review_by_id
     end
 
     def update
+        #retrieves review by review id
+        #updates review 
+        #if save it routes to review show page else render edit page
         @review = get_review_by_id 
         @review.update(review_params)
         
         if @review.save
             redirect_to user_review_path(@review.user_id,  @review.id)
         else 
-            flash[:alert] = "Did not update."
             render :edit
         end
 
@@ -90,12 +95,23 @@ class ReviewsController < ApplicationController
 
     private
 
+    def get_review
+        Review.find_by(user_id: params[:user_id], id: params[:id])
+    end
+
+    def redirect_if_unauthorized
+        redirect_to user_path(current_user.id) unless get_review
+    end 
+
     def get_review_by_id
+        #retrieve review by review id
+        #to ensure only the users specific review is updated
         @review = Review.find_by(id: params[:id]) 
     end
 
 
     def get_review_by_attraction
+        #retrieve reviews based on attraction id
         @review = Review.find_by(user_id: params[:user_id], attraction_id: params["review"][:attraction_id])
     end
 

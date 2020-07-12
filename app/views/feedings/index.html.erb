@@ -1,6 +1,28 @@
-<font color="white"><h1>Keep Going!</h1>
+<font color="white">
+<% if  @dinosaurs_not_fed != 0 %>
+<h1>Keep Going!</h1>
 <h3>Dinosaurs are hungry!</h3>
+<% else %>
+<h3>Great Job! Keep up the Good Work!</h3>
+<% end %>
+
+
+How many dinosaurs you fed: <%= @dinosaurs_fed %><br>
+How many dinosaurs not fed: <%= @dinosaurs_not_fed %><br>
+_________________________________________________________<br>
+Performance:  <% if @dinosaurs_not_fed != 0 %>
+                <font color="red">Poor</font>
+              <% else %>
+                <font color="green">Excellant</font>
+              <% end %><br>
+<br>
+<% @user.feedings.each do |f| %>
+    Dinosaur: <%= f.dinosaur.name %><br>
+    Care:      <%= f.sustenance %><br>
+    Time Fed:  <%= f.created_at %><br><br>
+<% end %>
 
 <%= link_to "Feed more", new_user_feeding_path(@user.id) %>
+<%= link_to "Clock Out", user_path(@user.id) %>
 
 </font>

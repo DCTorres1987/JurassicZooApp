@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 
     def new 
-      # Renders signup form
+      # retrieves current user
+      # checks if user is logged in
+      # if logged in then redirects to user show page else renders new page
       @user = current_user
 
       if logged_in?         
@@ -31,17 +33,19 @@ class UsersController < ApplicationController
     end 
 
     def create
-      #creates new user record by params passed in from new page
+      #creates new user record by params passed in from new page      
+      #if user is saved log in user and direct to home page 
+      #if @user doesn't save it will render new user page
+
       @user = User.create(user_params)
     
-      if @user.save
-      #if @user is saved log in user and direct to home page  
+      if @user.save 
         log_in(@user)
         send_to_user_page
 
-      else 
-      #if @user doesn't save it will render new user page
+      else       
         render :new
+
       end 
              
     end
