@@ -9,8 +9,8 @@ class User < ApplicationRecord
     has_many :tickets
     has_many :attractions, through: :tickets
     
-    validates_presence_of :name, :email, :username, :password, :password_confirmation
-    validates_uniqueness_of :username, :email
+    validates_presence_of :name, :username, :password
+    validates_uniqueness_of :username
     has_secure_password
 
 end

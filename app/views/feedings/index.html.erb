@@ -7,10 +7,10 @@
 <% end %>
 
 
-How many dinosaurs you fed: <%= @dinosaurs_fed %><br>
-How many dinosaurs not fed: <%= @dinosaurs_not_fed %><br>
+Number of Dinosaurs in Park: <%= @number_of_dinosaurs %><br>
+How many times dinosaurs fed today: <%= @dinosaurs_fed_today %><br>
 _________________________________________________________<br>
-Performance:  <% if @dinosaurs_not_fed != 0 %>
+Performance:  <% if @dinosaurs_fed_today < 5 %>
                 <font color="red">Poor</font>
               <% else %>
                 <font color="green">Excellant</font>

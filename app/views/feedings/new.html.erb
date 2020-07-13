@@ -10,20 +10,13 @@
      
             <% if d.feedings.last.nil?  %>
             <%# checks to see when dinosaur was last fed and how long its been %>
-                    <% if Time.now.to_s(:long).to_datetime  > d.created_at.time.to_s(:long).to_datetime + 30.minutes && Time.now.to_s(:long).to_datetime  < d.created_at.time.to_s(:long).to_datetime + 60.minutes   %>
-                    <%#  %>
-                        <font color="Orange">Hungry</font>
-                    <% elsif Time.now.to_s(:long).to_datetime  > d.created_at.time.to_s(:long).to_datetime + 60.minutes %>
-                        <font color="Red">Starving</font>
-                    <% else %>
-                        <font color="Green">Happy</font>
-                    <% end %> <br>  
+                        <font color="Red">Starving</font><br>
 
             <% else %>  
 
-                    <% if Time.now.to_s(:long).to_datetime  > d.feedings.last.created_at.time.to_s(:long).to_datetime + 30.minutes && Time.now.to_s(:long).to_datetime  < d.created_at.time.to_s(:long).to_datetime + 60.minutes    %>
+                    <% if Time.now.to_datetime  > d.feedings.last.created_at.to_datetime + 30.minutes && Time.now.to_datetime  < d.feedings.last.created_at.to_datetime + 60.minutes    %>
                         <font color="Orange">Hungry</font>
-                    <% elsif Time.now.to_s(:long).to_datetime  > d.feedings.last.created_at.time.to_s(:long).to_datetime + 60.minutes %>
+                    <% elsif Time.now.to_datetime  > d.feedings.last.created_at.to_datetime + 60.minutes %>
                         <font color="Red">Starving</font>
                     <% else %>
                         <font color="Green">Happy</font>
@@ -32,17 +25,18 @@
 
             <img src= <%= d.image %> alt="rss feed" />
 
-            <% dino_care.each do |c| %>
-                 <td><%= f.radio_button :sustenance, c %><%= c %></td>
-            <% end %><br>
              
             <br><%= d.name %> <%= f.radio_button :dinosaur_id, d.id %><br><br>
 
     <% end %>
    
+    <% dino_care.each do |c| %>
+            <td><%= f.radio_button :sustenance, c %><%= c %></td>
+    <% end %><br><br>
 
     <%= f.hidden_field :user_id, value: @feeding.user_id %>
     <%= f.submit "Submit" %> 
 
+<%= link_to "Clock Out", user_path(@feeding.user.id) %>
 <% end %>
 </font>

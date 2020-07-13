@@ -32,9 +32,9 @@ class FeedingsController < ApplicationController
         # if not matched redirects to user show page    
  
             @user = current_user
-            @dinosaurs_not_fed =  Dinosaur.joins("LEFT OUTER JOIN feedings ON feedings.dinosaur_id = dinosaurs.id").where("feedings.dinosaur_id is NULL").size
-            @dinosaurs_fed =  @user.feedings.distinct.pluck(:dinosaur_id).size
-
+            @number_of_dinosaurs = Dinosaur.all.size
+            @dinosaurs_fed_today =  Feeding.where(["created_at >  ? and user_id = ?", Time.now.to_date, @user.id]).distinct.size     
+ 
     end 
 
     private

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_10_230056) do
+ActiveRecord::Schema.define(version: 2020_07_13_014036) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address1"
@@ -70,22 +70,7 @@ ActiveRecord::Schema.define(version: 2020_07_10_230056) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "worker_attraction_joins", force: :cascade do |t|
-    t.integer "worker_id"
-    t.integer "attraction_id"
-    t.index ["worker_id", "attraction_id"], name: "index_worker_attraction_joins_on_worker_id_and_attraction_id", unique: true
-  end
-
-  create_table "workers", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "username"
-    t.string "password_digest"
-    t.integer "zoo_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "github_uid"
   end
 
   create_table "zoos", force: :cascade do |t|

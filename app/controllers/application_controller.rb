@@ -42,8 +42,12 @@ class ApplicationController < ActionController::Base
 
     def send_to_user_page
         #send to user page
-        user = current_user
-        redirect_to user_path(user.id)
+        if logged_in?
+            @user = current_user
+            redirect_to user_path(@user.id)
+        else 
+            send_to_home_page
+        end
     end 
 
     def find_attraction
@@ -54,8 +58,12 @@ class ApplicationController < ActionController::Base
     def user_check
         #checks to see if user is logged in and parameter user id match
         #not for user page
-        @user = current_user
-        logged_in? && @user.id == params[:user_id].to_i
+        if logged_in?
+            @user = current_user
+            logged_in? && @user.id == params[:user_id].to_i
+        else 
+            send_to_home_page
+        end
     end
 
 end

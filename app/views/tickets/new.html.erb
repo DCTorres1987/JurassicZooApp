@@ -1,9 +1,8 @@
 <font color="white">
-    <h1>Purchase a Ticket</h1>
+    <h1><u>Purchase a Ticket</u></h1>
     <%= render partial: '/errors', locals: { record: @ticket } %>
 
     <%= form_for @ticket, url: user_tickets_path(@ticket.user_id), method: :post do |w| %>
-
         <b>Times</b><br>
         <% zoo_times["times"].each do |t| %>
             <div><%= w.radio_button :time, t %> <%= t %></div>

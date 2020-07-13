@@ -1,9 +1,18 @@
 <font color="white">
    
     <h1>Dinosaur Parks!</h1>
-    <h2>Plan a visit!  Your journey begins!</h2>
 
-    <h2><img src="https://i.dailymail.co.uk/1s/2018/11/23/15/6558164-6421725-image-a-36_1542985253056.jpg" alt="rss feed" /></h2>
+    <h2><img src="https://cdn.shopify.com/s/files/1/2381/2037/articles/ILM-JWC3_1_d6515129-bdf9-4380-b83a-4f1f3a9c8b8c_600x.jpg?v=1512577636" ALIGN="right" alt="rss feed" /></h2>
+
+    <p>
+Dinosaurs first appeared between 247 and 240 million years ago. They ruled the Earth for about 175 million years until an extinction event 65.5 million years ago wiped out all of them, expect for the avian dinosaurs. Scientists don't agree entirely on what happened, but the extinction likely was a double or triple whammy involving an asteroid impact, choking chemicals from erupting volcanoes, climate change and possibly other factors.<br><br>
+
+Birds are living dinosaurs, most experts believe. Think of that next time a pigeon strafes you.
+
+Fossils show that some of the more advanced dinosaurs had feathers or feather-like body covering, but many of them didn't fly and probably didn't even glide. Archaeopteryx, which was for a long time considered to be the first bird (although this status is not certain), could likely launch itself from the ground, but probably couldn't fly far, according to unpublished research presented at the 2016 Society of Vertebrate Paleontology meeting in Salt Lake City, Utah. Instead, feathers, likely helped these bird-like dinosaurs stay warm as juveniles or send signals to other individuals.
+
+Many people think extinct flying reptiles called pterosaurs were dinosaurs. They were dinosaurs' closest relatives, but technically not dinosaurs. Pterosaurs had hollow bones, relatively large brains and eyes, and, of course, the flaps of skin extending along their arms, which were attached to the digits on their front hands. The family includes Pterodactyls, with elaborate, bony head crests and lack of teeth. Pterosaurs survived up until the mass die-off 65 million years ago, when they were went the way of the dodo along with marine reptiles and other nonavian dinosaurs.<br>
+</p><br><br>
     <% @zoos.each do |z| %>
         <h3><b><%= link_to z.name, zoo_path(z.id) %></b><br>
         <%= z.location %><br></h3>

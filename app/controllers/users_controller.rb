@@ -4,14 +4,13 @@ class UsersController < ApplicationController
       # retrieves current user
       # checks if user is logged in
       # if logged in then redirects to user show page else renders new page
-      @user = current_user
-
+     
       if logged_in?         
         send_to_user_page
       
       else        
         @user = User.new
-
+     
       end
       
     end
