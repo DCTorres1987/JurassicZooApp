@@ -10,6 +10,7 @@ Your models must:
         *** User has many Attractions, through Tickets 
 
 [X]  Include a many-to-many relationship implemented with has_many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user
+
         ***utilizing through tickets index. retrieving attractions through tickets users's have purchased
         ***utilizing through feeding index. retrieving dinosaur name through user's feeding dinosaurs
 
