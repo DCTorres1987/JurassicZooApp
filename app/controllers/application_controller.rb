@@ -16,7 +16,13 @@ class ApplicationController < ActionController::Base
 
     def log_in(user)
         #login user
+        # used in sessions controller
         session[:user_id] = user.id
+    end
+
+    def send_to_login
+        #redirects to login page
+        redirect_to login_path
     end
 
     def find_zoo
@@ -35,11 +41,6 @@ class ApplicationController < ActionController::Base
        redirect_to zoos_path
     end
 
-    def send_to_login
-        #redirects to login page
-        redirect_to login_path
-    end
-
     def send_to_user_page
         #send to user page
         if logged_in?
@@ -49,11 +50,6 @@ class ApplicationController < ActionController::Base
             send_to_home_page
         end
     end 
-
-    def find_attraction
-        #finds attraction associated with a specific zoo
-        @attractions = Attraction.find_by(zoo_id: params[:zoo_id])
-    end
 
     def user_check
         #checks to see if user is logged in and parameter user id match

@@ -12,21 +12,12 @@
 
   <body>
 
-  <header class="navbar navbar-fixed-top navbar-inverse">
-    <div class="navbar-inner">
-      <div class="container">
-        <nav>
-          <ul class="nav pull-right">
-<%= link_to  "Home", zoos_path %> <%= link_to  "Login", login_path %> <%= link_to  "Logout", logout_path %> <font color="white"><br> <%= link_to "Log in with Github", '/auth/github' %></font>
-            
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
-  <div class="container">
-
+ 
+<navbar>
+<%= render 'layouts/navbar' %>
+</navbar>
+<main class="wrapper">
     <%= yield %><br>   
-    
+    </main>
   </body>
 </html>

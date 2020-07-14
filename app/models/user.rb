@@ -1,6 +1,5 @@
 class User < ApplicationRecord
     has_many :reviews   
-    has_many :tickets
     has_many :addresses
 
     has_many :feedings

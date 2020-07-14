@@ -2,7 +2,7 @@ class FeedingsController < ApplicationController
     before_action :require_login
 
     def new
-        redirect_if_not_employed
+        
         @feeding = Feeding.new(user_id: params[:user_id])   
 
     end 
@@ -21,7 +21,7 @@ class FeedingsController < ApplicationController
     end 
 
     def show 
-        redirect_if_unauthorized
+        redirect_if_not_employed
     end
 
     def index
@@ -30,7 +30,7 @@ class FeedingsController < ApplicationController
         # sets the number of dinosaurs not fed to instance variable
         # sets the number of dinosaurs fed to instance variable    
         # if not matched redirects to user show page    
- 
+            redirect_if_not_employed
             @user = current_user
             @number_of_dinosaurs = Dinosaur.all.size
             @dinosaurs_fed_today =  Feeding.where(["created_at >  ? and user_id = ?", Time.now.to_date, @user.id]).distinct.size     
@@ -38,14 +38,6 @@ class FeedingsController < ApplicationController
     end 
 
     private
-
-    def get_feeding
-        Feeding.find_by(user_id: params[:user_id], id: params[:id])
-    end
-    
-    def redirect_if_unauthorized
-       redirect_to user_path(current_user.id) unless get_feeding
-    end
 
     def worker_check
         Address.find_by(user_id: params[:user_id])

@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       #retrieves current user 
       #checks to see if user is logged in and matches user param
       #if not a match it will redirect to home page
-      if user_check       
+      if user_authorized?       
         @worker = Address.find_by(user_id: params[:id])
         @user = current_user
 
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
      
     private    
 
-    def user_check
+    def user_authorized?
       #checks to see if user is logged in and parameter user id match
       #for user page
       @user = current_user

@@ -89,18 +89,14 @@ class ReviewsController < ApplicationController
     end 
 
     def destroy
-        get_review.destroy
+        get_review_by_id.destroy
         redirect_to user_path(@user.id)
     end
 
     private
 
-    def get_review
-        Review.find_by(user_id: params[:user_id], id: params[:id])
-    end
-
     def redirect_if_unauthorized
-        redirect_to user_path(current_user.id) unless get_review
+        redirect_to user_path(current_user.id) unless get_review_by_id
     end 
 
     def get_review_by_id

@@ -1,0 +1,16 @@
+<div class="header">
+    <div class="title">Jurassic Zoo App</div>
+    <% if current_user %>
+        <i>Welcome, <%= current_user.username %></i>
+    </div>
+<% end %>
+    <div class= "nav">
+        <% if logged_in? %>
+            <div><%= link_to  "Home", zoos_path %></div>
+            <div><%= link_to  "Logout", logout_path %></div>
+        <% else %>
+            <div><%= link_to  "Login", login_path %></div>        
+            <div><font color="white"><br> <%= link_to "Log in with Github", '/auth/github' %></font></div>
+        <% end %>
+    </div>
+</div>
