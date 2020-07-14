@@ -1,24 +1,35 @@
-# README
+# My Google Book Collection / Sinatra_Project_Book_Collection
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
 
-Things you may want to cover:
+  This Sinatra project is designed to give users the ability to view the book collection in my google library and leave a review.
+  The User will also have the ability to create, edit, and delete a book review. They will also have the ability to read reviews left by other users.
+  
+## Getting Started
 
-* Ruby version
+Fork and clone this repository to view code and open test.
 
-* System dependencies
+### Installation
 
-* Configuration
+Open repository in developement environment and navigate to the directory in command line.
 
-* Database creation
+* Run 'install corneal' to get all necessary gemfiles and the layout
+* Run 'bundle install' to make sure all the ruby gems are up to date
+* Run 'rake db:migrate' and 'rake db:seed' to create and seed database tables
+* Run 'rails s' and navigate to 'https://localhost:3000' 
 
-* Database initialization
+## Built With
 
-* How to run the test suite
+* Ruby
+* Rails
+* CSS
+* HTML
+ 
+## Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/'fortunate-callee-8918'/movieshowtimes. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-* Services (job queues, cache servers, search engines, etc.)
+## License
+The gem is available as open source under the terms of the MIT License.
 
-* Deployment instructions
-
-* ...
+## Code of Conduct
+Everyone interacting in the jurassiczooapp project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.

@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# Zoo.create(id: 1, name: 'Jurassic Zoo', location: '1800 Jurassic Lane, Isla Nublar', image: 'https://cdn1.beachdeals.com/wp/wp-content/uploads/2018/02/near-koloa-hawaii-660x250-GettyImages-534481599.jpg'); 
-# Zoo.create(id: 2, name: 'Jurassic Land', location: '745 Jurassic Road, South Isla Nublar', image: 'https://getawaygreg.files.wordpress.com/2013/01/hawaii-small.jpg');
+Zoo.create(id: 1, name: 'Jurassic Zoo', location: '1800 Jurassic Lane, Isla Nublar', image: 'https://cdn1.beachdeals.com/wp/wp-content/uploads/2018/02/near-koloa-hawaii-660x250-GettyImages-534481599.jpg'); 
+Zoo.create(id: 2, name: 'Jurassic Land', location: '745 Jurassic Road, South Isla Nublar', image: 'https://getawaygreg.files.wordpress.com/2013/01/hawaii-small.jpg');
 
 # # Attractions
-# Attraction.create!(name: 'Jurrasic Zoo Carnivore Exhibit',zoo_id: 1);
-# Attraction.create!(name: 'Jurrasic Zoo Herbivore Exhibit and Bird Exhibt',zoo_id: 1);
-# Attraction.create!(name: 'Jurrasic Land Herbivore and Sea Monster Exhibit',zoo_id: 2);
+Attraction.create!(name: 'Jurrasic Zoo Carnivore Exhibit',zoo_id: 1);
+Attraction.create!(name: 'Jurrasic Zoo Herbivore and Bird Exhibt',zoo_id: 1);
+Attraction.create!(name: 'Jurrasic Land Herbivore and Sea Monster Exhibit',zoo_id: 2);
 
 Dinosaur.create!(name: 'Allosaurus',image:'https://vignette.wikia.nocookie.net/jurassicworld-evolution/images/a/ac/JWEAllosaurus01.png/revision/latest/scale-to-width-down/310?cb=20190925195831');
 Dinosaur.create!(name: 'Ankylosaurus', image: 'https://vignette.wikia.nocookie.net/jurassicworld-evolution/images/6/65/JWEAnkylosaurus.png/revision/latest/scale-to-width-down/310?cb=20190426221948');

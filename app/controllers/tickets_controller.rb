@@ -2,7 +2,8 @@ class TicketsController < ApplicationController
     before_action :require_login
 
     def index
-        @tickets = Ticket.all.select{|t| t.user.id == params[:user_id].to_i}
+    
+        @tickets = User.find(params[:user_id]).tickets
     end
 
     def new

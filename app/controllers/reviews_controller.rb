@@ -89,7 +89,9 @@ class ReviewsController < ApplicationController
     end 
 
     def destroy
-        get_review_by_id.destroy
+        @user = current_user
+        @review = get_review_by_id
+        @review.destroy
         redirect_to user_path(@user.id)
     end
 

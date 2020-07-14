@@ -6,7 +6,8 @@
         <b>User Name:</b> <%=@review.user.username %>
         <b>Star Rating:</b> <%= @review.stars %>
         <b>Review:</b> <%= @review.review %>
-        <%= link_to  "Edit Review", edit_user_review_path(@review.user.id, @review.id) %><br>
+        <%= link_to  "Edit", edit_user_review_path(@review.user.id, @review.id) %>
+        <%= link_to 'Delete', user_review_path(@review.user_id), method: :delete, data: { confirm: 'For real?' } %>
     <br><br>
     <%= number_of_reviews %> <%= link_to  "Reviews", user_reviews_path(@review.user.id) %><br>
          

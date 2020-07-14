@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:create, :new, :show] do 
-    resources :addresses, only: [:new, :create, :show]
-    resources :tickets, only: [:create, :new, :show, :index]
-    resources :reviews, only: [:new, :create, :show, :index, :edit, :update, :destroy]
-    resources :feedings, only: [:new, :create, :index, :show]
+    resources :addresses, only: [:create, :new, :show]
+    resources :tickets, only: [:index, :create, :new, :show]
+    resources :reviews, only: [:index, :create, :new, :edit, :show, :update, :destroy]
+    resources :feedings, only: [:index, :create, :new, :show]
     get '/five_stars', to: 'reviews#five_stars'
     get '/four_stars', to: 'reviews#four_stars'
     get '/three_stars', to: 'reviews#three_stars'
