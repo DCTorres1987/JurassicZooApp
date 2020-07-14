@@ -25,40 +25,53 @@ Your models must:
         **** Created an scope in the Review model to filter reveiws on the review index page
 
 [X]  Your application must provide standard user authentication, including signup, login, logout, and passwords.
+
         *** have standard authentication. signup, login, logout, and password.
 
 [X]  Your amuthentication system must also allow login from soe other service. Facebook, Twitter, Foursquare, Github, etc
+
         *** user can login using github
 
 [X]  You must include and make use of a nested resource with the appropriate RESTful URLs.
+
         *** make sure routes are restful
 
     [X] You must include a nested new route with form that relates to the parent resource
+    
         *** feeding is nested under user that tracks dinosaurs that are being fed by user
 
     [X] You must include a nested index or show route
+    
         *** tickets [index, show] and review [index, show] is nested under User
 
 [X]  Your forms should correctly display validation errors.
+
         *** new pages review, feeding, tickets, and user display errors when submitted without meeting required fields 
 
 [X]  Your fields should be enclosed within a fields_with_errors class
+
         *** rendering field with errors in new user form
 
 [X]  Error messages describing the validation failures must be present within the view.
+
         *** errors are displaying when forms submitted without required values
 
 [X]  Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app.
+
         *** my code in the controllers are DRY
 
 [X]  Logic present in yours controllers should be encapsulated as methods in your models.
+
         ***methods are encapsulated in all my controller models
 
 [X]  Your views should use helper methods and partials when appropriate.
+
         *** using helper methods for session and review. Also rendering partials in the new forms for errors.
 
 [X]  Follow patterns in the Rails Style Guide and the Ruby Style Guide.
+
         *** I followed Rails Style Guide
 
 [X]  Do not use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and running quickly, but learning a lot is not one of the benefits of scaffolding.
+
         *** Did not user scaffolding 
