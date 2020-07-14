@@ -104,7 +104,7 @@ class ReviewsController < ApplicationController
     def get_review_by_id
         #retrieve review by review id
         #to ensure only the users specific review is updated
-        @review = Review.find_by(id: params[:id]) 
+        @review = Review.find_by(user_id: params[:user_id], id: params[:id]) 
     end
 
 
