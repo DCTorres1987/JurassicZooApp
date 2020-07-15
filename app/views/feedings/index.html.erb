@@ -1,11 +1,11 @@
 <font color="white">
-<% if  @dinosaurs_fed_today != 0 %>
-<h1>Keep Going!</h1>
-<h3>Dinosaurs are hungry!</h3>
-<% else %>
-<h3>Great Job! Keep up the Good Work!</h3>
-<% end %>
 
+  <% if  @dinosaurs_fed_today < 5 %>
+    <h1>Keep Going!</h1>
+    <h3>Dinosaurs are hungry!</h3>
+  <% else %>
+    <h3>Great Job! Keep up the Good Work!</h3>
+  <% end %>
 
 Number of Dinosaurs in Park: <%= @number_of_dinosaurs %><br>
 How many times dinosaurs fed today: <%= @dinosaurs_fed_today %><br>

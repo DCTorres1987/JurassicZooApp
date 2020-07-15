@@ -39,6 +39,9 @@ a:link {
   }
   
   /* mouse over link */
+
+
+
   a:hover {
     color: yellow;
   }

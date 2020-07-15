@@ -20,8 +20,9 @@ class FeedingsController < ApplicationController
 
     end 
 
-    def show 
-        redirect_if_not_employed
+    def show
+        redirect_to user_path(current_user.id)
+
     end
 
     def index
@@ -33,8 +34,8 @@ class FeedingsController < ApplicationController
             redirect_if_not_employed
             @user = current_user
             @number_of_dinosaurs = Dinosaur.all.size
-            @dinosaurs_fed_today =  Feeding.where(["created_at >  ? and user_id = ?", Time.now.to_date, @user.id]).distinct.size     
- 
+            @dinosaurs_fed_today =  @user.feedings.where(["created_at >  ? and user_id = ?", Time.now.to_date, @user.id]).size  
+        
     end 
 
     private

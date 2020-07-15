@@ -8,12 +8,11 @@ class AddressesController < ApplicationController
     # if don't match it redirects to user page  
     redirect_if_unauthorized
     
-    @address ||= Address.find_by(user_id: params[:user_id], id: params[:id])     
+    @address ||= get_address   
 
   end
 
   def new
-
     #checks to see if user is logged in and checking against params user id
     #if matches retrieves passes in params user id into and render new page
   
@@ -22,7 +21,6 @@ class AddressesController < ApplicationController
   end 
 
   def create
-
     #if review dosent' exist create review record useing review paramss
     #if review exist it will render review show page
     #if review saves successfully it will render show page
@@ -40,10 +38,12 @@ class AddressesController < ApplicationController
   private 
 
   def get_address
+    #retrieves address by user id and address id
     Address.find_by(user_id: params[:user_id], id: params[:id])
   end
 
   def redirect_if_unauthorized
+    #redirects to user page if user unauthorized to see address page
     redirect_to user_path(current_user.id) unless get_address
   end 
 
