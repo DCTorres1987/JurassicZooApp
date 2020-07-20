@@ -6,6 +6,16 @@ class TicketsController < ApplicationController
         @tickets = User.find(params[:user_id]).tickets
     end
 
+    def create
+        @ticket = Ticket.create(ticket_params)
+    
+        if @ticket.save
+            redirect_to user_ticket_path( @ticket.user_id, @ticket.id)
+        else 
+            render :new
+        end 
+    end
+
     def new
         if user_check
             @ticket = Ticket.new(user_id: params[:user_id])
@@ -21,15 +31,6 @@ class TicketsController < ApplicationController
 
     end 
 
-    def create
-        @ticket = Ticket.create(ticket_params)
-    
-        if @ticket.save
-            redirect_to user_ticket_path( @ticket.user_id, @ticket.id)
-        else 
-            render :new
-        end 
-    end
 
     private 
 

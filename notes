@@ -33,5 +33,5 @@ find_by => returns nil without exceptions
 HTML
 <div> defines a division or a section in an HTML document.
 <p> defines a paragraph. auto add a single blank line before and after each <p> element
-<div id="times"> allows me to call on shadow box style
+
 
