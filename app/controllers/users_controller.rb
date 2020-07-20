@@ -1,35 +1,9 @@
 class UsersController < ApplicationController
 
-    def new 
-      # retrieves current user
-      # checks if user is logged in
-      # if logged in then redirects to user show page else renders new page
-     
-      if logged_in?         
-        send_to_user_page
-      
-      else        
-        @user = User.new
-     
-      end
-      
+    #index page is not used but will redirect user as needed based on user login
+    def index
+      send_to_user_page
     end
-   
-
-    def show         
-      #retrieves current user 
-      #checks to see if user is logged in and matches user param
-      #if not a match it will redirect to home page
-      if user_authorized?       
-        @worker = Address.find_by(user_id: params[:id])
-        @user = current_user
-
-      else 
-        send_to_user_page
-
-      end
-
-    end 
 
     def create
       #creates new user record by params passed in from new page      
@@ -46,8 +20,43 @@ class UsersController < ApplicationController
         render :new
 
       end 
-             
+            
     end
+
+    def new 
+      # retrieves current user
+      # checks if user is logged in
+      # if logged in then redirects to user show page else renders new page
+     
+      if logged_in?
+        @user = current_user         
+        send_to_user_page
+      
+      else        
+        @user = User.new
+     
+      end
+      
+    end
+   
+
+    def show         
+      #checks to see if user is authorized?
+        #if authorized
+          #will retrieve address if there is one and save instance
+          #will set current user instance variable
+        #if not authorized
+          #will send to 
+      if user_authorized?       
+        @worker = Address.find_by(user_id: params[:id])
+        @user = current_user
+
+      else 
+        send_to_user_page
+
+      end
+
+    end 
      
     private    
 

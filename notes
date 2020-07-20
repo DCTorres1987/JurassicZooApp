@@ -1,28 +1,37 @@
-Do not use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and running quickly, 
-but learning a lot is not one of the benefits of scaffolding.
+#Representational state transfer (REST) => is a software architectual style that defines a set constraints to be used for creating Web services.
 
-# Feature requests
-* scope method: filter Careers by attractions and/or spinal effect?
-* model method:
-* view helper method:
-* helper method: 
+HTTP Verb   Universal Resource Identifier (URI)     Controller Action      Template (if any)
+GET         => /things                                  #index              views/things/index.html.erb
+POST                                                    #create
 
-# Todo
+GET         => /things/new                              #new                views/things/new.html.erb
 
-## jurassic zoo
-### zoo controller
-* Index =>  Welcomet = > Has zoo locations and a link to their individual show page
-* Show =>   Will give users option of creating an account or apply for a job at that zoo. Link directs to Worker/new or User/new 
+GET         => /things/:id                              #show               views/things/show.html.erb
+PATCH                                                   #update
+DELETE                                                  #destroy
 
-### worker controller
-* Show => Will allow worker to see list of dinosaurs with a button to give food or water. Timing of their last feeding will change their moodlet
+GET         => /things/:id/edit                         #edit               views/things/edit.html.erb
 
-### user controller 
-* Show => Will give user option to purchase a ticket to an attaraction or to leave a review. Link that directs to Ticket/new using shopping basket?
+GET => retrieves info identified by the Request URI.
+POST => sends data enclosed in the request to the server
+PATCH/PUT => used to update existing resources
+DELETE => delete the resource identified by the Request URI.
 
+Form_For - an advanced form helper that will yield a FormBuilder object that you use to generate your form element (text fields, labels, a submit button, etc)
+    => works best for forms that manage CRUD
+Form_Tag - an lower-level form helper that simply generates a form element. To add fields to the form tag block, you add form elements tags (text_field_tag, number field tag, submit tag, etc)
+    => works well for forms that are not directly connected with models (search engines)
 
-### 
+Don't Repeat Yourself(DRY)
+    => DRY is a software design principle that, like Seperate of Concerns, helps make decisions about how to organize code.
 
+Helpers are methods that are available to views and encapsulates a common bit of code
 
+find => raises RecordNotFound Exception when returns nil 
+find_by => returns nil without exceptions
 
+HTML
+<div> defines a division or a section in an HTML document.
+<p> defines a paragraph. auto add a single blank line before and after each <p> element
+<div id="times"> allows me to call on shadow box style
 

@@ -1,36 +1,27 @@
 <font color="white">
 
 
-  <h1>Welcome, <%= @user.username %>! Please see below for our Package</h1>
-  <h2>Hours of Operation <span>(subject to change)</span></h2>
+  <h1>Welcome, <%= @user.username %>!</h1>
+  <h2>Please see below for our Package. Hours of Operation (subject to change)</h2>
 
- <% Zoo.all.each do |z| %>
-  <h2><img src= <%= z.image %> alt="rss feed" /></h2><br> 
+  <% Zoo.all.each do |z| %>
+    <img src= <%= z.image %> alt="rss feed" /><br> 
 
-    <div class="section-grid">
-        <section id="hours" class="section-cell">
- 
-            <div class="table">
-              <p><%= z.name %> is open daily, except Thanksgiving <span>and Christmas days.</span></p>
-              <p><span>Regular hours: <span>9:00am – 5:00pm.</span></span></p>
-            </div>
-        </section>
+              <div id="times">
+              <%# allows me to call on shadow box style %>
+                <p><%= z.name %> is open daily, except Thanksgiving and Christmas days.</p>
+                <p>Regular hours: 9:00am – 5:00pm.</p>
+              </div><br>
+              
+    <% end %>
 
-    </div>
-  <% end %>
+    <h2>General Admission Rates (per visit)</h2>
+      <p><strong>Adults</strong> (ages 13–61) — $19.95 per person</p>
+      <p><strong>Children</strong> (ages 2–12) — $16.95 per person</p>
+      <p><strong>Children</strong> (younger than 2) — FREE</p>
+      <p><strong>Seniors</strong> (ages 62 and up) <strong>and Military</strong> (with military ID) — $17.95 per person</p>
+      <p><strong>Parking</strong> — $5 per vehicle (fee collected at ticket window)</p>
 
-          <section id="rates" class="section-cell">
-          <h2>General Admission Rates <span>(per visit)</span></h2>
-          <div class="table">
-            <p><strong>Adults</strong> (ages 13–61) <span>— $19.95 per person</span></p>
-            <p><strong>Children</strong> (ages 2–12) <span>— $16.95 per person</span></p>
-            <p><strong>Children</strong> (younger than 2) <span>— FREE</span></p>
-            <p><strong>Seniors</strong> (ages 62 and up) <span><strong>and Military</strong> (with military ID)</span> <span>— $17.95 per person</span></p>
-            <p><strong>Parking</strong> <span>— $5 per vehicle (fee collected at ticket window)</span></p><!--
-            <p><strong>Unlimited Daily Rides and Attractions Wristband</strong> <span>— $20.00 per person</span> <span style="font-size:12px; line-height:15px;">(includes giraffe feeding, lorikeet feeding, carousel rides, kid’s train rides, pony rides, and rock wall; general admission, Sky-High Safari, and zipline are <em>not</em> included with purchase)</span></p>-->
-          </div>
-        </section>
-        
         <%= link_to "Purchase a Ticket!", new_user_ticket_path(@user.id) %> 
         <%= link_to "Reviews", new_user_review_path(@user.id) %><br><br>
 

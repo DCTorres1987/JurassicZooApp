@@ -1,23 +1,24 @@
 
 
-  <font color="white"><p>
-  <%= label(:user, :Email) %>
-  <div><%= text_field(:user, :email) %></div>
+  <p>
+    <%= label(:user, :Email) %>
+    <div><%= text_field(:user, :email) %></div>
   </p>
 
   <p>
-  <%= label(:user, :Username) %>
-  <div><%= text_field(:user, :username) %></div>
+    <%= label(:user, :Username) %>
+    <div><%= text_field(:user, :username) %></div>
   </p>
 
   <p>
-  <%= label(:user, :Password) %>
-  <div><%= password_field(:user, :password) %></div>
+    <%= label(:user, :Password) %>
+    <div><%= password_field(:user, :password) %></div>
   </p>
-  <p>
-  <div><%= label(:user, :confirm_password) %></div>
-  <div><%= password_field(:user, :password_confirmation) %></div>
-  </font>
 
+  <p>
+    <%= label(:user, :confirm_password) %>
+    <div><%= password_field(:user, :password_confirmation) %></div>
+  </p>
+  
   <%= submit_tag "Submit" %><br> 
 

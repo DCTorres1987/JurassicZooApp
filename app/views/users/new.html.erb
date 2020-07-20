@@ -7,10 +7,12 @@
   <%= form_for @user, url: users_path, method: :post do |w| %>
 
     <p>
-      <div><%= w.label :name %></div>
+      <%= w.label :name %>
       <div><%= w.text_field :name %></div>
     </p>
-</font>
 
   <%= render 'form' %>
+
   <% end %>
+
+  </font>
