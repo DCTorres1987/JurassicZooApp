@@ -54,14 +54,10 @@ class ApplicationController < ActionController::Base
 
 
     def user_check
-        #checks to see if user is logged in and parameter user id match
+        #checks to see if parameter user id match with current user
         #not for user page
-        if logged_in?
             @user = current_user
             logged_in? && @user.id == params[:user_id].to_i
-        else 
-            send_to_home_page
-        end
     end
 
 end
