@@ -1,11 +1,6 @@
 class ReviewsController < ApplicationController
     before_action :require_login
     
-    def index
-        #retrieve all reviews
-        @reviews = Review.all
-    end 
-
     # Methods for Review Filter________
     def five_stars
         @reviews = Review.five_stars
@@ -33,38 +28,49 @@ class ReviewsController < ApplicationController
     end
     # _____________________________
 
-    def show  
-        redirect_if_unauthorized
-        @review = Review.find_by(user_id: params[:user_id], id: params[:id])
-  
+    def index
+        #checks params to see if it matches current user
+        #retrieve all reviews 
+        if user_check
+            @reviews = Review.all
+        else 
+            send_to_user_page
+        end
+        
     end 
 
     def create 
         #retrieves review by attraction id
-        #if review dosent' exist create review record useing review paramss
+        #if review dosent' exist create review record using review params
         #if review exist it will render review show page
         #if review saves successfully it will render show page
-
         @review = get_review_by_attraction
 
         if @review.nil? 
-            @review = current_user.reviews.build(review_params)
-    
-            if @review.save
-                send_to_review_show_page
-
-            else        
-                render :new
-            end 
-
+            @review = current_user.reviews.build(review_params)    
+                if @review.save
+                    send_to_review_show_page
+                else        
+                    render :new
+                end 
         else
             send_to_review_show_page
         end
-
     end 
 
     def new 
-        @review = Review.new(user_id: params[:user_id]) 
+        if user_check
+            @review = Review.new(user_id: params[:user_id]) 
+        else 
+            send_to_user_page
+        end 
+    end 
+
+    def show  
+
+        redirect_if_unauthorized
+        @review = Review.find_by(user_id: params[:user_id], id: params[:id])
+  
     end 
 
     def update

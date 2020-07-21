@@ -2,8 +2,13 @@ class TicketsController < ApplicationController
     before_action :require_login
 
     def index
-        #returns an order history for user    
-        @tickets = User.find(params[:user_id]).tickets
+        #returns an order history for user 
+        if user_check   
+            @tickets = User.find(params[:user_id]).tickets
+        else 
+            send_to_user_page
+        end
+            
     end
 
     def create
