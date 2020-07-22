@@ -4,4 +4,5 @@ class Ticket < ApplicationRecord
     validates :time, presence: true
     validates :price, presence: true
 
+
 end

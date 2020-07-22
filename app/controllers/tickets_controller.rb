@@ -17,7 +17,16 @@ class TicketsController < ApplicationController
             #redirects to tickets show page
         #else if it don't save
             #renders new ticket page
-        @ticket = Ticket.create(ticket_params)
+      
+        if params["ticket"]["attraction_id"].empty?
+            @zoo = Zoo.all.last 
+            @attraction = Attraction.find_or_create_by(name: params["ticket"]["attraction"]["name"], zoo_id: @zoo.id)
+            @ticket = Ticket.create(time: params["ticket"]["time"], price: params["ticket"]["price"], attraction_id: @attraction.id, user_id: params["user_id"])
+
+        else
+            @ticket = Ticket.create(ticket_params)
+        end
+        
     
         if @ticket.save
             redirect_to user_ticket_path( @ticket.user_id, @ticket.id)
@@ -62,7 +71,7 @@ class TicketsController < ApplicationController
     end  
 
     def ticket_params    
-        params.require(:ticket).permit(:time, :price, :attraction_id, :user_id,)
+        params.require(:ticket).permit(:time, :price, :attraction_id, :name, :user_id)
     end         
 
 end

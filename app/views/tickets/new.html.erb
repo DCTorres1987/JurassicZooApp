@@ -18,7 +18,12 @@
 
         <b>Available Attractions</b><br>
 
-        <%= w.collection_select :attraction_id, Attraction.all , :id, :name %>
+        <%= w.collection_select :attraction_id, Attraction.all , :id, :name, include_blank: 'Create Attraction' %> or <br><br>
+        <b>Create New Attraction:</b><br>
+        <%= w.fields_for :attraction do |a| %>
+        <%= a.label :name %>
+        <%= a.text_field :name %>
+        <% end %>
 
         <%= w.hidden_field :user_id, value: @ticket.user_id %>
 </font>
