@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
     #index page is not used but will redirect user as needed based on user login
     def index
-      send_to_user_page
+      @users = User.search(params[:search])
     end
 
     def create
@@ -69,6 +69,6 @@ class UsersController < ApplicationController
 
   
     def user_params
-        params.require(:user).permit(:name, :username, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :username, :email, :password, :password_confirmation, :search)
     end
 end

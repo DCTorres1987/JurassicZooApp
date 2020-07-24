@@ -1,0 +1,15 @@
+<font color="white">
+<h1>Find Users</h1>
+
+<h4>Search by Username: </h4>
+    <%= form_tag(users_path, method: :get) do  %>
+    <%= text_field_tag(:search, params[:search]) %>
+    <%= submit_tag ("Search") %>
+    <% end %>
+
+<% @users.each do |u| %>
+Name: <%= u.name %><br>
+Username: <%= u.username %><br>
+<% end %>
+
+</font>

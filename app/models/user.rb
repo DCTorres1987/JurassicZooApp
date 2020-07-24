@@ -12,4 +12,17 @@ class User < ApplicationRecord
     validates_uniqueness_of :username
     has_secure_password
 
+    def self.search(search)
+        if search
+                user = User.find_by(username: search)
+                if user
+                    self.where(id: user)
+                else 
+                    User.all
+                end 
+        else 
+            User.all
+        end
+    end
+
 end
